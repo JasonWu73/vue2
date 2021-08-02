@@ -1,32 +1,52 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <home></home>
   </div>
 </template>
 
+<script>
+  // @ is an alias to /src
+  import Home from '@/views/Home.vue';
+
+  export default {
+    components: { Home }
+  };
+</script>
+
 <style lang="scss">
-  #app {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 1rem = 10px，10px / 16px = 62.5%
+
+    @media only screen and (max-width: $bp-large) {
+      font-size: 50%;
+    }
+  }
+
+  body {
+    // 从 Vue CLI 中拷贝
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-  }
 
-  #nav {
-    padding: 30px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: $color-grey-dark-2;
+    background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+    background-size: cover;
+    background-repeat: no-repeat;
 
-    a {
-      font-weight: bold;
-      color: #2c3e50;
-
-      &.router-link-exact-active {
-        color: #42b983;
-      }
-    }
+    min-height: 100vh;
   }
 </style>

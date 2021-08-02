@@ -1,18 +1,31 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <the-header></the-header>
+    <the-content></the-content>
   </div>
 </template>
 
 <script>
-  // @ is an alias to /src
-  import HelloWorld from '@/components/HelloWorld.vue';
+  import TheHeader from '@/components/layout/TheHeader.vue';
+  import TheContent from '@/components/layout/TheContent.vue';
 
   export default {
-    name: 'Home',
-    components: {
-      HelloWorld
-    }
+    components: { TheHeader, TheContent }
   };
 </script>
+
+<style lang="scss" scoped>
+  .container {
+    max-width: 120rem;
+    margin: 8rem auto;
+    background-color: $color-grey-light-1;
+    box-shadow: $shadow-dark;
+
+    min-height: 50rem;
+
+    @media only screen and (max-width: $bp-largest) {
+      margin: 0;
+      max-width: 100%;
+    }
+  }
+</style>
